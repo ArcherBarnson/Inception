@@ -2,8 +2,10 @@ FROM		debian:bullseye
 
 RUN		apt update -y && apt upgrade -y
 
-RUN		apt install curl nginx
+RUN		apt install curl nginx vim openssl -y
+
+COPY		conf/nginx.conf etc/nginx/nginx.conf	
 
 EXPOSE		8080
 
-ENTRYPOINT	/bin/sh
+ENTRYPOINT	["nginx", "-g", "daemon off;"]
