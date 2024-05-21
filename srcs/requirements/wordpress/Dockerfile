@@ -18,6 +18,8 @@ COPY		./tool/wp-autoconf.sh /wp-autoconf.sh && chmod +x /wp-autoconf.sh
 
 COPY		./conf/www.conf etc/php/7.3/fpm/pool.d
 
-RUN		export DB_NAME=inception_db DB_ADMIN=bgrulois DB_ADMIN_PW=lol123 DB_HOSTNAME=bgrulois42.fr
+#RUN		export DB_NAME=inception_db DB_ADMIN=bgrulois DB_ADMIN_PW=lol123 DB_HOSTNAME=bgrulois42.fr ---> pk pas ?
+
+EXPOSE		9000
 
 ENTRYPOINT	["wp-autoconf.sh"]
