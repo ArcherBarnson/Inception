@@ -2,19 +2,21 @@ FROM		debian:bullseye
 
 RUN		apt update -y && apt upgrade -y
 
-RUN 		apt install wget curl vim -y && \
-		apt install php7.3 php-fpm php-mysql mariadb-client -y
+RUN 		apt install wget curl vim -y && apt-get install php7.3 php-fpm php-mysql mariadb-client -y
 
-RUN		wget https://wordpress.org/latest.tar.gz -P /var/www/ && \
-		tar xf /var/www/latest.tar.gz /var/www/ && rm rf /var/www/latest.tar.gz
+RUN		wget https://wordpress.org/latest.tar.gz -P /var/www
 
-RUN		curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phari && \
-		chmod +x wp-cli.phari && \
-		mv wp-cli.phar /usr/local/bin/wp
+RUN		cd /var/www && tar -xzf ./latest.tar.gz  && rm -rf ./latest.tar.gz
+
+RUN		wget "https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar"
+
+RUN		chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp
 
 RUN		chmod -R 755 /var/www/wordpress
 
-COPY		./tool/wp-autoconf.sh /wp-autoconf.sh && chmod +x /wp-autoconf.sh
+COPY		./tools/wp-autoconf.sh .
+
+RUN		chmod +x ./wp-autoconf.sh
 
 COPY		./conf/www.conf etc/php/7.3/fpm/pool.d
 
