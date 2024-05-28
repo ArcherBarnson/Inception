@@ -1,5 +1,5 @@
 sudo apt update -y && sudo apt upgrade -y
-sudo apt install wget nano git -y
+sudo apt install wget vim -y
 
 #docker stuff
 sudo apt-get update -y
@@ -15,7 +15,5 @@ sudo apt-get update -y
 
 #install latest
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
-
-#ssh-keygen -t rsa
 
 echo "HOST IS SET\n"

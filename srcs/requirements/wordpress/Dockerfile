@@ -14,7 +14,7 @@ RUN		chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp
 
 RUN		chmod -R 755 /var/www/wordpress
 
-COPY		./tools/wp-autoconf.sh .
+COPY		./tools/wp-autoconf.sh ./wp-autoconf.sh
 
 RUN		chmod +x ./wp-autoconf.sh
 
@@ -24,4 +24,4 @@ COPY		./conf/www.conf etc/php/7.3/fpm/pool.d
 
 EXPOSE		9000
 
-ENTRYPOINT	["wp-autoconf.sh"]
+ENTRYPOINT	["./wp-autoconf.sh"]
