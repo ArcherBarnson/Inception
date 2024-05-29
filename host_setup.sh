@@ -1,5 +1,5 @@
 sudo apt update -y && sudo apt upgrade -y
-sudo apt install wget vim -y
+sudo apt install wget vim terminator -y
 
 #docker stuff
 sudo apt-get update -y
