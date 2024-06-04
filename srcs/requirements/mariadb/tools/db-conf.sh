@@ -1,6 +1,6 @@
 #!/bin/sh
 
-service mysql start
+#service mysql start
 
 mysql -e "CREATE DATABASE IF NOT EXISTS \`${SQL_DATABASE}\`;"
 
@@ -10,6 +10,12 @@ mysql -e "GRANT ALL PRIVILEGES ON \`${SQL_DATABASE}\`.* TO \`${SQL_USER}\`@'%' I
 
 mysql -e "FLUSH PRIVILEGES;"
 
-mysqladmin -u root -p$SQL_ROOT_PASSWORD shutdown
+echo "jvous ai dit c la"
+
+mysqladmin -u $SQL_USER -p $SQL_PASSWORD shutdown
+
+echo "et apres la c nul"
 
 exec mysqld_safe
+
+echo "DATABASE READY (maybe)"

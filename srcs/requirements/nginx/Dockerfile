@@ -2,7 +2,7 @@ FROM		debian:bullseye
 
 RUN		apt update -y && apt upgrade -y
 
-RUN		apt install curl nginx vim openssl -y
+RUN		apt install curl nginx openssl -y
 
 RUN		mkdir /etc/nginx/ssl
 
@@ -12,6 +12,6 @@ RUN		openssl req -x509 -nodes -out /etc/nginx/ssl/inception.crt -keyout /etc/ngi
 
 COPY		conf/nginx.conf etc/nginx/nginx.conf	
 
-#EXPOSE		8080	
+EXPOSE		443
 
 ENTRYPOINT	["nginx", "-g", "daemon off;"]
