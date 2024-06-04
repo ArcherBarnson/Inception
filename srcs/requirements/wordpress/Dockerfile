@@ -2,7 +2,7 @@ FROM		debian:bullseye
 
 RUN		apt update -y && apt upgrade -y
 
-RUN 		apt install wget curl vim -y && apt-get install php7.3 php-fpm php-mysql mariadb-client -y
+RUN 		apt-get install php7.3 php-fpm php-mysql mariadb-client wget -y
 
 RUN		wget https://wordpress.org/latest.tar.gz -P /var/www
 
