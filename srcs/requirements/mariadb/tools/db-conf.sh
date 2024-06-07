@@ -5,7 +5,7 @@ service mariadb start
 #mysqld_safe &
 
 #killall mysqld_safe
-sleep 30
+sleep 15
 
 mysqladmin -u root password ${SQL_ROOT_PASSWORD}
 

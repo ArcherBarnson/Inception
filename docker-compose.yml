@@ -8,7 +8,7 @@ services:
     ports:
       - "443:443"
     build:
-      context: requirements/nginx
+      context: /home/bgrulois/inception/srcs/requirements/nginx
       dockerfile: Dockerfile
     env_file: .env 
     volumes:
@@ -22,7 +22,7 @@ services:
     networks:
       - inception-network
     build:
-      context: requirements/mariadb
+      context: /home/bgrulois/inception/srcs/requirements/mariadb
       dockerfile: Dockerfile
     env_file: .env
     depends_on: 
@@ -38,7 +38,7 @@ services:
     networks:
       - inception-network
     build:
-      context: requirements/wordpress
+      context: /home/bgrulois/inception/srcs/requirements/wordpress
       dockerfile: Dockerfile
     env_file: .env
     depends_on:
