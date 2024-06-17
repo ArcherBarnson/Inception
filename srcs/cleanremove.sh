@@ -2,3 +2,5 @@
 
 sudo docker system prune -af
 -sudo docker volume ls $(sudo docker volume ls -q) 2>/dev/null
+sudo rm -rf ~/data/wordpress ~/data/mariadb
+sudo mkdir ~/data/wordpress ~/data/mariadb

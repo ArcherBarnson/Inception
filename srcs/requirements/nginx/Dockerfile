@@ -12,6 +12,6 @@ RUN		openssl req -x509 -nodes -out /etc/nginx/ssl/inception.crt -keyout /etc/ngi
 
 COPY		conf/nginx.conf etc/nginx/nginx.conf	
 
-EXPOSE		443
+EXPOSE		80 443
 
 ENTRYPOINT	["nginx", "-g", "daemon off;"]

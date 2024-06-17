@@ -25,7 +25,7 @@ cp /var/www/wordpress/wp-config-sample.php /var/www/wordpress/wp-config.php
 rm /var/www/wordpress/wp-config-sample.php
 
 #default config setup (i think)
-wp core install --allow-root --url=localhost --title=bgrulois_inception --admin_user=$WP_ADMIN --admin_password=$WP_ADMIN_PW --admin_email=$WP_ADMIN_EMAIL --skip-email --path='/var/www/wordpress'
+wp core install --allow-root --url=bgrulois.42.fr --title=bgrulois_inception --admin_user=$WP_ADMIN --admin_password=$WP_ADMIN_PW --admin_email=$WP_ADMIN_EMAIL --skip-email --path='/var/www/wordpress'
 
 #adding normal user 1
 wp user create --allow-root $WP_USER1 $WP_USER1_EMAIL --role=author --user_pass=$WP_USER1_PW --path='/var/www/wordpress'
