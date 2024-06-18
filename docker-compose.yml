@@ -11,6 +11,8 @@ services:
       context: /home/bgrulois/inception/srcs/requirements/nginx
       dockerfile: Dockerfile
     env_file: .env 
+    depends_on:
+      - wordpress
     volumes:
       #- /home/bgrulois/data/wordpress 
       - wordpress:/var/www/wordpress
@@ -25,8 +27,6 @@ services:
       context: /home/bgrulois/inception/srcs/requirements/mariadb
       dockerfile: Dockerfile
     env_file: .env
-    depends_on: 
-      - nginx
     volumes:
       - mariadb:/var/lib/mysql
       #  - /home/bgrulois/data/mariadb
