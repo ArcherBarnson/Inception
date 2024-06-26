@@ -21,6 +21,8 @@ services:
   mariadb:
     image: mariadb
     container_name: mariadb
+    expose:
+      - "3306"
     networks:
       - inception-network
     build:
@@ -35,6 +37,8 @@ services:
   wordpress:
     image: wordpress
     container_name: wordpress
+    expose:
+      - "9000"
     networks:
       - inception-network
     build:

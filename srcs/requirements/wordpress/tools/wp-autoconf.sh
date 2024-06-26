@@ -42,4 +42,8 @@ mkdir -p /run/php
 fi
 
 echo "Launching php fpm..."
+
+if [ -e /etc/php/7.4/fpm/pool.d/www.conf ]; then
+echo "www.conf EXISTS"
+fi
 /usr/sbin/php-fpm7.4 -F

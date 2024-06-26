@@ -4,7 +4,7 @@ FROM		debian:bullseye
 
 RUN		apt update -y && apt upgrade -y
 
-RUN 		apt-get install php7.4 php-fpm php-mysql mariadb-client wget -y
+RUN 		apt-get install php7.4 php7.4-fpm php7.4-mysql mariadb-client wget -y
 
 #RUN 		apt-get install php7.3 php-fpm php-mysql mariadb-client wget -y
 
@@ -22,7 +22,7 @@ COPY		./tools/wp-autoconf.sh ./wp-autoconf.sh
 
 RUN		chmod +x ./wp-autoconf.sh
 
-COPY		./conf/www.conf etc/php/7.3/fpm/pool.d
+COPY		./conf/www.conf etc/php/7.4/fpm/pool.d/www.conf
 
 EXPOSE		9000
 

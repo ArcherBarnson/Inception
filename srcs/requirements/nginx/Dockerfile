@@ -14,6 +14,10 @@ RUN		openssl req -x509 -nodes -out /etc/nginx/ssl/inception.crt -keyout /etc/ngi
 
 COPY		conf/nginx.conf etc/nginx/nginx.conf	
 
-EXPOSE		80 443
+EXPOSE		443
+
+RUN		chmod -R 755 /var/www/html
+
+RUN		chown -R www-data:www-data /var/www/html
 
 ENTRYPOINT	["nginx", "-g", "daemon off;"]
