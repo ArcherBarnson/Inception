@@ -52,6 +52,17 @@ services:
       - wordpress:/var/www/wordpress
     restart: on-failure
 
+  website:
+    container_name: website
+    ports:
+      - "9999:9999"
+    networks:
+      - inception-network
+    build:
+      context: /home/bgrulois/inception/srcs/bonus/website
+      dockerfile: Dockerfile
+    restart: unless-stopped
+
 volumes: 
   wordpress:
     driver: local
