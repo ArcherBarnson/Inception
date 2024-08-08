@@ -61,7 +61,23 @@ services:
     build:
       context: /home/bgrulois/inception/srcs/bonus/website
       dockerfile: Dockerfile
-    restart: unless-stopped
+    restart: on-failure
+  
+  adminer:
+    container-name: adminer
+    ports:
+      - "9001:9001"
+    networks:
+      - inception-network
+    build:
+      context: /home/bgrulois/inception/srcs/bonus/adminer
+      dockerfile: Dockerfile
+    depends-on:
+      - wordpress
+      - mariadb
+    volumes:
+      - wordpress:/var/www/wordpress
+    restart: on-failure
 
 volumes: 
   wordpress:
