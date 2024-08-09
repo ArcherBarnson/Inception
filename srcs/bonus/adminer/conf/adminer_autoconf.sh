@@ -8,8 +8,8 @@ wget "http://www.adminer.org/latest.php" -O /var/www/wordpress/adminer.php
 
 chmod 755 /var/www/wordpress/adminer.php
 
-php -S [::]:9001 -t /var/www/
+#$ awk '/@ini_set('session.use_trans_sid', '0');/ { print; print  "@ini_set('session.gc_maxlifetime',1440); ;" next }1' foo.input
+
+php -S [::]:9001 -t /var/www/wordpress
 
 echo "Adminer Ready."
-
-
