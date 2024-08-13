@@ -77,16 +77,17 @@ services:
       - mariadb
     volumes:
       - wordpress:/var/www/wordpress
+      - mariadb:/var/lib/mysql
     restart: on-failure
 
-  redis:
-    container_name: redis
-    networks:
-      - inception-network
-    build:
-      context: /home/bgrulois/inception/srcs/bonus/redis
-      dockerfile: Dockerfile
-    restart: on-failure
+ # redis:
+ #   container_name: redis
+ #   networks:
+ #     - inception-network
+ #   build:
+ #     context: /home/bgrulois/inception/srcs/bonus/redis
+ #     dockerfile: Dockerfile
+ #   restart: on-failure
 
 volumes: 
   wordpress:

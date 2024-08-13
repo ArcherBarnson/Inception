@@ -2,7 +2,7 @@ FROM		debian:bullseye
 
 RUN		apt update -y && apt upgrade -y
 
-RUN		apt install wget php -y
+RUN		apt install wget php7.4 php7.4-fpm php7.4-mysql -y
 
 COPY		conf/adminer_autoconf.sh /
 
